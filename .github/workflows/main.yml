@@ -1,0 +1,44 @@
+name: Deploy Portfolio to AWS S3
+
+# Trigger the pipeline on pushes to the main branch
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Clone the repository onto the runner
+      - name: Checkout Source Code
+        uses: actions/checkout@v4
+
+      # Step 2: Install Node.js environment
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # Step 3: Install dependencies (creates node_modules)
+      - name: Install NPM Dependencies
+        run: npm install
+
+      # Step 4: Compile the React application into the 'dist' folder
+      - name: Build Application
+        run: npm run build
+
+      # Step 5: Inject AWS Credentials into the runner environment
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      # Step 6: Sync the compiled 'dist' folder to the S3 bucket
+      # The --delete flag removes files in S3 that no longer exist in the new build
+      - name: Sync to AWS S3
+        run: |
+          aws s3 sync dist/ s3://${{ secrets.AWS_S3_BUCKET }} --delete
