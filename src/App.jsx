@@ -191,7 +191,7 @@ export default function App() {
                 I engineer resilient infrastructure, enforce GitOps workflows, and orchestrate containerized microservices. Focused on AWS EKS, automated BYOC control planes, and strict DevSecOps pipelines.
               </p>
               <div className="flex flex-wrap gap-4">
-                <a href="#" className="flex items-center gap-2 font-semibold px-6 py-3 bg-white text-gray-950 rounded-lg hover:bg-gray-200 transition-colors">
+                <a href="https://portfolio-parth-bucket-24.s3.amazonaws.com/Parth%20Singh%20Kushwaha%20Resume%202026.pdf" target="_blank" rel="noreferrer" className="flex items-center gap-2 font-semibold px-6 py-3 bg-white text-gray-950 rounded-lg hover:bg-gray-200 transition-colors">
                   <Download size={18} /> Resume (PDF)
                 </a>
                 <a href="https://github.com/Parth2496Singh" target="_blank" rel="noreferrer" className="flex items-center gap-2 font-semibold px-6 py-3 bg-gray-900 text-white rounded-lg border border-gray-700 hover:bg-gray-800 transition-colors">
