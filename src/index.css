@@ -1,38 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+@custom-variant dark (&:is(.dark *));
 
 body {
   margin: 0;
   overflow-x: hidden;
-  font-family: 'Inter', sans-serif;
-  background-color: #030014; /* Deep space dark */
-  color: #e2e8f0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  @apply bg-[#fafafa] dark:bg-[#0b0f19] text-gray-800 dark:text-gray-200;
 }
 
 .font-mono {
   font-family: 'JetBrains Mono', monospace;
 }
 
-/* Custom scrollbar for a premium feel */
-::-webkit-scrollbar {
-  width: 8px;
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #c084fc; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #a855f7; }
+html { scroll-behavior: smooth; }
+
+/* Blinking Cursor Animation */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
-::-webkit-scrollbar-track {
-  background: #0f111a;
-}
-::-webkit-scrollbar-thumb {
-  background: #2d3748;
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #4a5568;
+.animate-blink {
+  animation: blink 1s step-end infinite;
 }
 
-/* Premium Glassmorphism utility */
-.glass {
-  background: rgba(17, 24, 39, 0.65);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+/* Anti-Gravity Bobbing Animations */
+@keyframes bob1 {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
 }
+@keyframes bob2 {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(10px); }
+}
+@keyframes bob3 {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+}
+@keyframes bob4 {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(12px); }
+}
+
+.orbit-1 { animation: bob1 3.5s ease-in-out infinite; }
+.orbit-2 { animation: bob2 4s ease-in-out infinite; }
+.orbit-3 { animation: bob3 3.2s ease-in-out infinite; }
+.orbit-4 { animation: bob4 3.8s ease-in-out infinite; }
