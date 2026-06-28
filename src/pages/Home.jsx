@@ -86,7 +86,7 @@ export default function Home() {
             <Link to="/projects" className="bg-[#a855f7] hover:bg-[#9333ea] text-white px-8 py-3.5 rounded-lg font-bold transition-transform duration-300 hover:scale-105 shadow-lg shadow-purple-500/30">
               View Architectures
             </Link>
-            <a href="https://portfolio-parth-bucket-24.s3.amazonaws.com/Parth%20Singh%20Kushwaha%20Resume%202026.pdf" target="_blank" rel="noreferrer" className="group bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm text-gray-900 dark:text-white border border-gray-200 dark:border-gray-700 px-8 py-3.5 rounded-lg font-bold transition-all duration-300 hover:bg-[#a855f7] hover:text-white hover:border-[#a855f7] flex items-center gap-2">
+            <a href="https://portfolio-parth-bucket-24.s3.us-east-1.amazonaws.com/Parth%20Singh%20Kushwaha's%20Resume%202026.pdf" target="_blank" rel="noreferrer" className="group bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm text-gray-900 dark:text-white border border-gray-200 dark:border-gray-700 px-8 py-3.5 rounded-lg font-bold transition-all duration-300 hover:bg-[#a855f7] hover:text-white hover:border-[#a855f7] flex items-center gap-2">
               <Download size={18} className="group-hover:text-white transition-colors" /> Resume
             </a>
           </motion.div>
